@@ -1,0 +1,81 @@
+/* ── Top Students — matches reference ── */
+.tkd-rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tkd-rank {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--tkd-fg);
+}
+
+.tkd-rank--you { background: #e9f0fd; }
+
+.tkd-rank-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.tkd-rank-num--n1 { background: #f59e0b; color: #fff; }
+.tkd-rank-num--n2 { background: #b7bdc9; color: #fff; }
+.tkd-rank-num--n3 { background: #d97706; color: #fff; }
+.tkd-rank-num--n  { color: #23262f; }
+
+.tkd-rank-name { flex: 1; min-width: 0; font-weight: 600; }
+.tkd-rank-pts  { color: #6b7280; font-weight: 400; font-size: 12px; }
+
+/* ── Avatar initials — matches reference ── */
+.tkd-avatar {
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 700;
+  flex-shrink: 0;
+  font-size: 11px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tkd-avatar::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 24%;
+  width: 34%;
+  height: 34%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.tkd-avatar::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -14%;
+  width: 70%;
+  height: 46%;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 0 0;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.tkd-avatar--a1 { background: linear-gradient(135deg, #5b6b8c, #26304a); }
+.tkd-avatar--a2 { background: linear-gradient(135deg, #7a5c4a, #3a2a22); }
+.tkd-avatar--a3 { background: linear-gradient(135deg, #4d7c6f, #1f3a33); }
+.tkd-avatar--a4 { background: linear-gradient(135deg, #3f6bb0, #1b2f57); }
+.tkd-avatar--a5 { background: linear-gradient(135deg, #8a5a7a, #3c2337); }

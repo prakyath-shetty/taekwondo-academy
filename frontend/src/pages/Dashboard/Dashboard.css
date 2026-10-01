@@ -1,0 +1,255 @@
+/* ── Dashboard layout — compact desktop ── */
+.tkd-dash-page {
+  background: var(--tkd-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.tkd-dash-content {
+  flex: 1;
+  padding: 1rem 1.25rem 1.5rem;
+  max-width: none;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* ── Stat Cards ── */
+.tkd-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.625rem;
+  margin-bottom: 0.625rem;
+  padding: 0 1px;
+}
+
+.tkd-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.625rem 0.75rem;
+  height: 68px;
+  border-radius: var(--tkd-r-lg);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  background: none;
+  text-align: left;
+  font-family: inherit;
+  min-width: 0;
+}
+
+.tkd-stat--red   { background: #fde9eb; }
+.tkd-stat--blue  { background: #e4eefc; }
+.tkd-stat--purple { background: #efe6fc; }
+.tkd-stat--orange { background: #fdf0e2; }
+
+.tkd-stat-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.tkd-stat--red .tkd-stat-icon   { background: #f9c7cd; color: var(--tkd-red); }
+.tkd-stat--blue .tkd-stat-icon  { background: #c5dcf9; color: var(--tkd-blue); }
+.tkd-stat--purple .tkd-stat-icon { background: #dcc9f8; color: var(--tkd-purple); }
+.tkd-stat--orange .tkd-stat-icon { background: #fbd9b8; color: var(--tkd-orange); }
+
+.tkd-stat-icon svg { width: 19px; height: 19px; }
+.tkd-stat-info { flex: 1; min-width: 0; }
+.tkd-stat-label {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #23262f;
+}
+.tkd-stat-value {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-top: 1px;
+  color: var(--tkd-fg);
+  line-height: 1.2;
+}
+.tkd-stat-value--blue {
+  color: #1d57e0;
+  font-size: 15px;
+  margin-top: 3px;
+}
+.tkd-stat-foot {
+  font-size: 10px;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 500;
+}
+.tkd-stat-foot.green { color: #2e8b57; }
+.tkd-stat-foot.muted { color: #4b5060; }
+.tkd-stat-foot.warm  { color: var(--tkd-red); }
+.tkd-stat-deco {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.55;
+}
+
+@media (max-width: 1050px) {
+  .tkd-stats-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .tkd-stats-row { grid-template-columns: 1fr; }
+  .tkd-stat { height: auto; }
+}
+
+/* ── Shared card style ── */
+.tkd-card {
+  background: var(--tkd-surface);
+  border-radius: var(--tkd-r-xl);
+  padding: 0.75rem;
+  box-shadow: var(--tkd-shadow);
+  overflow: hidden;
+}
+
+.tkd-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.625rem;
+}
+
+.tkd-card-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--tkd-fg);
+  min-width: 0;
+}
+
+.tkd-view-all {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--tkd-blue);
+  font-size: 11px;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity var(--tkd-ease);
+  flex-shrink: 0;
+}
+
+.tkd-view-all:hover { opacity: 0.75; }
+
+/* ── Calendar (inlined in Dashboard) ── */
+.tkd-cal-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.tkd-cal-nav button {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  color: #222;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.tkd-cal-nav button:hover { color: var(--tkd-red); }
+.tkd-cal-nav button svg { width: 20px; height: 20px; }
+
+.tkd-cal {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  row-gap: 2px;
+}
+
+.tkd-dow {
+  font-size: 12.5px;
+  color: #4b5060;
+  padding: 8px 0 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.tkd-day {
+  height: 30.5px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #2a2e38;
+  cursor: pointer;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.tkd-day--out { color: #c4c8d0; }
+.tkd-day:hover:not(.tkd-day--out):not(.tkd-day--today) { background: #f1f3f6; }
+.tkd-day--today { background: #fbdfe2; color: var(--tkd-red); font-weight: 700; }
+.tkd-day--has { font-weight: 700; }
+
+.tkd-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--tkd-red);
+  position: absolute;
+  bottom: 1px;
+}
+
+/* ── 2-column section: Videos + Calendar ── */
+.tkd-dash-2col {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(290px, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  align-items: start;
+}
+
+.tkd-dash-left,
+.tkd-dash-right { min-width: 0; overflow: hidden; }
+
+@media (max-width: 1050px) {
+  .tkd-dash-2col { grid-template-columns: 1fr; }
+}
+
+/* ── Bottom row (3 cards) ── */
+.tkd-dash-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.tkd-dash-bottom > * { min-width: 0; overflow: hidden; }
+
+@media (max-width: 900px) {
+  .tkd-dash-bottom { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .tkd-dash-bottom { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ── Responsive adjustments ── */
+@media (max-width: 900px) {
+  .tkd-dash-content { padding: 0.75rem; }
+}

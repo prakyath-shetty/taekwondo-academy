@@ -1,0 +1,75 @@
+/* ── Schedule Card ── */
+.tkd-schedule-card {
+  background: var(--tkd-surface);
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-xl);
+  padding: 1.25rem;
+  height: 100%;
+}
+
+.tkd-schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tkd-schedule-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.625rem 0.75rem;
+  border-radius: var(--tkd-r-lg);
+  transition: background 150ms ease;
+  cursor: pointer;
+}
+
+.tkd-schedule-item:hover { background: var(--tkd-bg); }
+
+.tkd-schedule-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 44px;
+  padding: 0.375rem 0.5rem;
+  background: var(--tkd-bg);
+  border-radius: var(--tkd-r-md);
+  flex-shrink: 0;
+}
+
+.tkd-schedule-day {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--tkd-red);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.tkd-schedule-full {
+  font-size: 0.625rem;
+  color: var(--tkd-fg-muted);
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.tkd-schedule-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.tkd-schedule-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--tkd-fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tkd-schedule-time {
+  font-size: 0.75rem;
+  color: var(--tkd-fg-muted);
+}

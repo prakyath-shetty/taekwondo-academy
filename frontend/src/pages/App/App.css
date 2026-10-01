@@ -1,0 +1,648 @@
+/* =========================================
+   TKD Academy Dashboard Layout
+   ========================================= */
+
+.tkd-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  font-family: var(--font-family);
+}
+
+/* ── Sidebar ── */
+.tkd-sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background-color: var(--color-navy);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.tkd-sidebar-header {
+  padding: 1.25rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tkd-sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.tkd-sidebar-logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.tkd-sidebar-brand {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tkd-sidebar-close {
+  display: none;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.tkd-sidebar-nav {
+  flex: 1;
+  padding: 0.75rem 0;
+  overflow-y: auto;
+}
+
+.tkd-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 150ms ease;
+  border-left: 3px solid transparent;
+  font-family: inherit;
+}
+
+.tkd-nav-item:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tkd-nav-item-active {
+  color: #ffffff;
+  background: linear-gradient(90deg, rgba(220, 38, 38, 0.25) 0%, transparent 100%);
+  border-left-color: #dc2626;
+}
+
+.tkd-sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tkd-sidebar-quote {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Main Content ── */
+.tkd-main {
+  flex: 1;
+  margin-left: 240px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── Top Bar ── */
+.tkd-topbar {
+  height: 60px;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.tkd-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-fg-muted);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.tkd-topbar-search {
+  flex: 1;
+  max-width: 400px;
+  position: relative;
+}
+
+.tkd-topbar-search svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-fg-subtle);
+}
+
+.tkd-topbar-search input {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--color-fg);
+  background: var(--color-bg);
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  font-family: inherit;
+}
+
+.tkd-topbar-search input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.tkd-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.tkd-topbar-icon-btn {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--color-fg-muted);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--radius-md);
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.tkd-topbar-icon-btn:hover {
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+.tkd-notification-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: #dc2626;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.tkd-topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 4px 8px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.tkd-topbar-user:hover {
+  background: var(--color-bg);
+}
+
+.tkd-user-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.tkd-user-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-fg);
+  white-space: nowrap;
+}
+
+.tkd-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-fg-muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 150ms ease;
+  font-family: inherit;
+}
+
+.tkd-logout-btn:hover {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ── Content Area ── */
+.tkd-content {
+  flex: 1;
+  padding: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* ── Hero Banner ── */
+.tkd-hero-banner {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+  border-radius: var(--radius-xl);
+  padding: 2rem 2.5rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.tkd-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.tkd-hero-greeting {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.tkd-hero-subtitle {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.tkd-hero-pattern {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  opacity: 0.15;
+}
+
+/* ── Stats Grid ── */
+.tkd-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tkd-stat-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  transition: box-shadow 150ms ease, transform 150ms ease;
+}
+
+.tkd-stat-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.tkd-stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.tkd-stat-blue .tkd-stat-icon { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.tkd-stat-red .tkd-stat-icon { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.tkd-stat-green .tkd-stat-icon { background: linear-gradient(135deg, #22c55e, #16a34a); }
+.tkd-stat-orange .tkd-stat-icon { background: linear-gradient(135deg, #f97316, #ea580c); }
+
+.tkd-stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.tkd-stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-fg);
+  line-height: 1.2;
+}
+
+.tkd-stat-label {
+  font-size: 0.8125rem;
+  color: var(--color-fg-muted);
+  font-weight: 500;
+}
+
+/* ── Content Grid ── */
+.tkd-content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Cards ── */
+.tkd-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.tkd-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tkd-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-fg);
+  margin: 0;
+}
+
+.tkd-card-link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: opacity 150ms ease;
+}
+
+.tkd-card-link:hover {
+  opacity: 0.8;
+}
+
+/* ── Class List ── */
+.tkd-class-list {
+  padding: 0.5rem;
+}
+
+.tkd-class-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  transition: background 150ms ease;
+}
+
+.tkd-class-item:hover {
+  background: var(--color-bg);
+}
+
+.tkd-class-date {
+  text-align: center;
+  min-width: 60px;
+  padding: 0.5rem;
+  background: var(--color-primary-light);
+  border-radius: var(--radius-md);
+}
+
+.tkd-class-day {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tkd-class-time {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+.tkd-class-info {
+  flex: 1;
+}
+
+.tkd-class-name {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+.tkd-class-coach {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--color-fg-muted);
+}
+
+.tkd-class-btn {
+  padding: 0.375rem 0.875rem;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 150ms ease;
+  font-family: inherit;
+}
+
+.tkd-class-btn:hover {
+  background: var(--color-primary-hover);
+}
+
+/* ── Quick Actions ── */
+.tkd-quick-actions {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.tkd-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.875rem 1rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-fg-subtle);
+  border-radius: var(--radius-md);
+  color: var(--color-fg);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 150ms ease;
+  font-family: inherit;
+}
+
+.tkd-action-btn:hover {
+  border-color: var(--color-border-focus);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.tkd-action-btn svg {
+  flex-shrink: 0;
+}
+
+/* ── Announcements ── */
+.tkd-announcements {
+  margin-bottom: 1.5rem;
+}
+
+.tkd-announcement-list {
+  padding: 0.5rem;
+}
+
+.tkd-announcement {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  transition: background 150ms ease;
+}
+
+.tkd-announcement:hover {
+  background: var(--color-bg);
+}
+
+.tkd-announcement-text {
+  font-size: 0.875rem;
+  color: var(--color-fg-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.tkd-announcement-badge {
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.tkd-badge-red { background: #fef2f2; color: #dc2626; }
+.tkd-badge-blue { background: #eff6ff; color: #2563eb; }
+.tkd-badge-green { background: #f0fdf4; color: #16a34a; }
+
+/* ── Mobile responsive ── */
+@media (max-width: 1023px) {
+  .tkd-sidebar {
+    transform: translateX(-100%);
+  }
+
+  .tkd-sidebar-open {
+    transform: translateX(0);
+  }
+
+  .tkd-sidebar-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tkd-sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+  }
+
+  .tkd-main {
+    margin-left: 0;
+  }
+
+  .tkd-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tkd-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tkd-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tkd-user-name {
+    display: none;
+  }
+
+  .tkd-topbar-search {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .tkd-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tkd-content {
+    padding: 1rem;
+  }
+
+  .tkd-hero-banner {
+    padding: 1.5rem;
+  }
+
+  .tkd-hero-greeting {
+    font-size: 1.25rem;
+  }
+
+  .tkd-hero-pattern {
+    display: none;
+  }
+}

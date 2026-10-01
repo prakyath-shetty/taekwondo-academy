@@ -1,0 +1,108 @@
+/* ── Reusable form input with design tokens ── */
+.tkd-input-wrap {
+  margin-bottom: 0.5rem;
+}
+
+.tkd-input-wrap.has-helper {
+  margin-bottom: 0;
+}
+
+.tkd-input-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--tkd-fg);
+  margin-bottom: 0.375rem;
+}
+
+.tkd-input-field {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-lg);
+  font-size: 0.9375rem;
+  font-family: var(--tkd-font);
+  color: var(--tkd-fg);
+  background: var(--tkd-white);
+  transition: border-color var(--tkd-ease), box-shadow var(--tkd-ease);
+  outline: none;
+}
+
+.tkd-input-field:focus {
+  border-color: var(--tkd-red);
+  box-shadow: 0 0 0 3px var(--tkd-red-soft);
+}
+
+.tkd-input-field.tkd-input--error {
+  border-color: var(--tkd-red);
+}
+
+.tkd-input-field.tkd-input--error:focus {
+  box-shadow: 0 0 0 3px var(--tkd-red-soft);
+}
+
+.tkd-input-error {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--tkd-red);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.tkd-input-helper {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--tkd-fg-muted);
+  margin-top: 0.25rem;
+}
+
+/* ── Button with design tokens ── */
+.tkd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6875rem 1.5rem;
+  border-radius: var(--tkd-r-lg);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: var(--tkd-font);
+  cursor: pointer;
+  border: none;
+  background: var(--tkd-red);
+  color: #ffffff;
+  transition: background var(--tkd-ease), opacity var(--tkd-ease), transform 100ms ease;
+  box-shadow: 0 2px 8px rgba(215, 38, 61, 0.25);
+}
+
+.tkd-btn:hover:not(:disabled) {
+  background: var(--tkd-red-dark);
+}
+
+.tkd-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.tkd-btn:disabled,
+.tkd-btn.tkd-btn--loading {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tkd-btn--full {
+  width: 100%;
+}
+
+.tkd-btn__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: tkd-spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes tkd-spin {
+  to { transform: rotate(360deg); }
+}

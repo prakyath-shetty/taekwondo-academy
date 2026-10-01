@@ -1,0 +1,58 @@
+/* ── Event Type Badge ── */
+.tkd-etb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tkd-etb--training        { background: var(--tkd-blue-soft);   color: var(--tkd-blue); }
+.tkd-etb--special-training{ background: var(--tkd-purple-soft); color: var(--tkd-purple); }
+.tkd-etb--tournament      { background: var(--tkd-green-soft);  color: var(--tkd-green); }
+.tkd-etb--belt-grading    { background: var(--tkd-red-soft);    color: var(--tkd-red); }
+.tkd-etb--holiday         { background: var(--tkd-orange-soft); color: var(--tkd-orange); }
+.tkd-etb--academy-event   { background: var(--tkd-bg);          color: var(--tkd-fg-muted); border: 1px solid var(--tkd-border); }
+
+/* ── Empty State ── */
+.tkd-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  gap: 0.75rem;
+  color: var(--tkd-fg-muted);
+}
+
+.tkd-empty-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--tkd-bg);
+  border: 1px solid var(--tkd-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tkd-fg-subtle);
+}
+
+.tkd-empty-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--tkd-fg);
+  margin: 0;
+}
+
+.tkd-empty-desc {
+  font-size: 0.875rem;
+  color: var(--tkd-fg-muted);
+  margin: 0;
+  line-height: 1.5;
+}

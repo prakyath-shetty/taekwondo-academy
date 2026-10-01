@@ -1,0 +1,198 @@
+/* ── Attendance Calendar ── */
+.tkd-acal {
+  background: var(--tkd-surface);
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-lg);
+  box-shadow: var(--tkd-shadow);
+  overflow: hidden;
+  min-width: 0;
+  width: 100%;
+}
+
+.tkd-acal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  background: var(--tkd-surface);
+  color: var(--tkd-fg);
+  border-bottom: 1px solid var(--tkd-border);
+}
+
+.tkd-acal-title {
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 0;
+  margin: 0;
+}
+
+.tkd-acal-nav {
+  display: flex;
+  gap: 0.375rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.tkd-acal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--tkd-border);
+  min-width: 0;
+}
+
+.tkd-acal-dow {
+  min-width: 0;
+  padding: 0.375rem 0.125rem;
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tkd-fg-subtle);
+  background: var(--tkd-surface);
+}
+
+.tkd-acal-day {
+  min-width: 0;
+  min-height: 52px;
+  background: var(--tkd-surface);
+  padding: 0.25rem 0.375rem;
+  cursor: pointer;
+  transition: background var(--tkd-ease);
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  position: relative;
+}
+
+.tkd-acal-day:hover {
+  background: var(--tkd-bg);
+}
+
+.tkd-acal-day--out {
+  background: var(--tkd-bg);
+  cursor: default;
+  color: var(--tkd-fg-subtle);
+}
+
+.tkd-acal-day--out:hover {
+  background: var(--tkd-bg);
+}
+
+.tkd-acal-day--today {
+  background: var(--tkd-red-soft);
+}
+
+.tkd-acal-day--selected {
+  background: color-mix(in srgb, var(--tkd-red) 10%, var(--tkd-surface));
+  outline: 2px solid var(--tkd-red);
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+.tkd-acal-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.tkd-acal-dot--present  { background: var(--tkd-green); }
+.tkd-acal-dot--absent   { background: var(--tkd-orange); }
+.tkd-acal-dot--late     { background: var(--tkd-blue); }
+.tkd-acal-dot--excused  { background: var(--tkd-fg-subtle); }
+.tkd-acal-dot--upcoming { background: var(--tkd-fg-muted); opacity: 0.5; }
+
+/* Legend */
+.tkd-acal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  padding: 0.5rem 0.75rem;
+  border-top: 1px solid var(--tkd-border);
+  background: var(--tkd-surface);
+}
+
+.tkd-acal-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.6875rem;
+  color: var(--tkd-fg-muted);
+  font-weight: 500;
+}
+
+/* ── Selected Date Info Panel ── */
+.tkd-acal-selected-info {
+  margin-top: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: var(--tkd-surface);
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-lg);
+  box-shadow: var(--tkd-shadow);
+  min-width: 0;
+}
+
+.tkd-acal-selected-date-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--tkd-red-dark);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--tkd-border);
+}
+
+.tkd-acal-selected-date-label svg {
+  color: var(--tkd-red);
+  flex-shrink: 0;
+}
+
+.tkd-acal-session-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 0.625rem;
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-md);
+  background: var(--tkd-bg);
+}
+
+.tkd-acal-session-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tkd-acal-session-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--tkd-fg);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tkd-acal-session-time {
+  font-size: 0.75rem;
+  color: var(--tkd-fg-muted);
+}
+
+.tkd-acal-session-empty {
+  padding: 1rem 0.75rem;
+  color: var(--tkd-fg-muted);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .tkd-acal-day { min-height: 46px; padding: 0.25rem 0.125rem; }
+  .tkd-cal-day-num { font-size: 0.75rem; }
+  .tkd-acal-legend { gap: 0.5rem 0.875rem; }
+}

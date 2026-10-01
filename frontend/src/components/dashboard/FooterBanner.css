@@ -1,0 +1,85 @@
+/* ── Footer Banner — matches reference ── */
+.tkd-banner {
+  margin-top: 16px;
+  height: 140px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(100deg, #5a0e19 0%, #8c1522 40%, #6d0f1b 70%, #4a0a14 100%);
+  display: flex;
+  align-items: center;
+}
+
+.tkd-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 12% 50%, rgba(255, 255, 255, 0.10), transparent 40%);
+}
+
+.tkd-banner-fig {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 260px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.tkd-banner-bt {
+  padding-left: 46px;
+  position: relative;
+  width: 340px;
+  flex-shrink: 0;
+}
+
+.tkd-banner-bt b {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.tkd-banner-bt i {
+  display: block;
+  font-family: var(--tkd-font-serif);
+  font-size: 25px;
+  margin-top: 2px;
+}
+
+.tkd-bannerVals {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-around;
+  padding-right: 40px;
+}
+
+.tkd-banner-v {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+  position: relative;
+  padding: 4px 26px;
+}
+
+.tkd-banner-v + .tkd-banner-v::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: rgba(255, 90, 100, 0.55);
+}
+
+.tkd-banner-v svg { width: 22px; height: 22px; }
+
+@media (max-width: 900px) {
+  .tkd-bannerVals { display: none; }
+}

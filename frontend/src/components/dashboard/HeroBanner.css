@@ -1,0 +1,118 @@
+.tkd-hero {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  height: 260px;
+  min-height: 240px;
+  max-height: 280px;
+  aspect-ratio: auto;
+  border-radius: var(--tkd-r-xl);
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(105deg, #0a0d14 0%, #101724 58%, #1b2436 100%);
+  margin-bottom: 0.75rem;
+}
+
+.tkd-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../../assets/images/dashboard-hero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.tkd-hero-copy {
+  position: relative;
+  z-index: 1;
+  padding: 1.25rem;
+  max-width: 55%;
+}
+
+.tkd-hero-visual {
+  display: none;
+}
+
+.tkd-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 8.5px;
+  letter-spacing: 2.5px;
+  color: #a0a6b4;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.tkd-hero-eyebrow::before {
+  content: '';
+  width: 10px;
+  height: 2px;
+  background: var(--tkd-red);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.tkd-hero-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.15;
+  min-width: 0;
+}
+
+.tkd-hero-wave {
+  font-size: 18px;
+}
+
+.tkd-hero-sub {
+  font-size: 13px;
+  margin-top: 4px;
+  color: #c8ccd4;
+  font-weight: 400;
+}
+
+@media (min-width: 1280px) {
+  .tkd-hero-copy { padding: 1.5rem; }
+  .tkd-hero-title { font-size: 28px; }
+  .tkd-hero-sub { font-size: 13px; margin-top: 6px; }
+}
+
+@media (max-width: 900px) {
+  .tkd-hero {
+    height: 210px;
+    max-height: none;
+    grid-template-columns: minmax(0, 1fr);
+    aspect-ratio: auto;
+    min-height: 190px;
+  }
+
+  .tkd-hero-copy {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 1rem;
+    max-width: 68%;
+  }
+
+  .tkd-hero-visual {
+    grid-column: 1;
+    grid-row: 2;
+    aspect-ratio: 1.6 / 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .tkd-hero { height: 180px; min-height: 180px; border-radius: var(--tkd-r-lg); }
+  .tkd-hero-copy { max-width: 74%; }
+  .tkd-hero-title { font-size: 18px; }
+  .tkd-hero-sub { font-size: 11px; margin-top: 2px; }
+}

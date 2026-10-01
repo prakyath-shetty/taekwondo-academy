@@ -1,0 +1,242 @@
+/* ── Header ── */
+.tkd-header {
+  height: 60px;
+  background: var(--tkd-surface);
+  border-bottom: 1px solid var(--tkd-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  gap: 1rem;
+}
+
+.tkd-header-left {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+}
+
+.tkd-header-left-icon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375rem;
+  border: 0;
+  border-radius: var(--tkd-r-md);
+  background: transparent;
+  color: var(--tkd-fg-muted);
+  cursor: pointer;
+}
+
+.tkd-header-left-icon:hover {
+  background: var(--tkd-bg);
+  color: var(--tkd-fg);
+}
+
+@media (max-width: 768px) {
+  .tkd-header-left-icon { display: inline-flex; }
+}
+
+/* Right side */
+.tkd-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.tkd-header-btn {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--tkd-fg-muted);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--tkd-r-md);
+  transition: background 150ms ease, color 150ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tkd-header-btn:hover { background: var(--tkd-bg); color: var(--tkd-fg); }
+
+.tkd-header-badge {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  background: var(--tkd-red);
+  color: #fff;
+  border-radius: 9999px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.tkd-header-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--tkd-border);
+  margin: 0 0.375rem;
+}
+
+.tkd-header-user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.5rem;
+  border-radius: var(--tkd-r-lg);
+  cursor: pointer;
+  transition: background 150ms ease;
+  border: none;
+  background: none;
+  color: inherit;
+  text-align: left;
+}
+
+.tkd-header-user:hover { background: var(--tkd-bg); }
+
+.tkd-header-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--tkd-red);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.tkd-header-user-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.tkd-header-user-name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--tkd-fg);
+}
+
+.tkd-header-user-role {
+  font-size: 0.6875rem;
+  color: var(--tkd-fg-muted);
+}
+
+/* ── Chevron animation ── */
+.tkd-header-chevron {
+  color: var(--tkd-fg-subtle);
+  flex-shrink: 0;
+  transition: transform 200ms ease;
+}
+
+.tkd-header-chevron--open {
+  transform: rotate(180deg);
+}
+
+/* ── Active states ── */
+.tkd-header-btn--active {
+  background: var(--tkd-bg);
+  color: var(--tkd-fg);
+}
+
+.tkd-header-user--active {
+  background: var(--tkd-bg);
+}
+
+/* ── Profile Dropdown ── */
+.tkd-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 220px;
+  background: var(--tkd-surface);
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-xl);
+  box-shadow: var(--tkd-shadow-lg);
+  padding: 0.5rem;
+  z-index: 200;
+}
+
+.tkd-dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem;
+}
+
+.tkd-dropdown-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--tkd-red);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.tkd-dropdown-user-details {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+  min-width: 0;
+}
+
+.tkd-dropdown-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tkd-fg);
+}
+
+.tkd-dropdown-role {
+  font-size: 11.5px;
+  color: var(--tkd-fg-muted);
+  margin-top: 1px;
+}
+
+.tkd-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  width: 100%;
+  padding: 0.5rem 0.625rem;
+  border: none;
+  background: none;
+  color: var(--tkd-fg);
+  border-radius: var(--tkd-r-md);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  transition: background 150ms ease;
+}
+
+.tkd-dropdown-item:hover { background: var(--tkd-bg); }
+
+.tkd-dropdown-divider {
+  height: 1px;
+  background: var(--tkd-border);
+  margin: 0.375rem 0;
+}
+
+.tkd-dropdown-item-danger { color: var(--tkd-red); }
+.tkd-dropdown-item-danger:hover { background: var(--tkd-red-soft); }

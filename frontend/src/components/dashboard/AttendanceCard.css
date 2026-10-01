@@ -1,0 +1,99 @@
+/* ── Attendance Card ── */
+.tkd-attend-card {
+  background: var(--tkd-surface);
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-xl);
+  padding: 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tkd-attend-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tkd-attend-big {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.tkd-attend-pct {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--tkd-fg);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.tkd-attend-label {
+  font-size: 0.8125rem;
+  color: var(--tkd-fg-muted);
+  font-weight: 500;
+}
+
+.tkd-attend-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tkd-attend-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  color: var(--tkd-fg-muted);
+  font-weight: 500;
+}
+
+.tkd-attend-stat-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tkd-attend-stat-dot--yes   { background: var(--tkd-green); }
+.tkd-attend-stat-dot--no    { background: var(--tkd-fg-subtle); }
+.tkd-attend-stat-dot--streak { background: var(--tkd-orange); }
+
+/* Weekly heatmap */
+.tkd-attend-week {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.tkd-attend-day {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0;
+  background: var(--tkd-bg);
+  border-radius: var(--tkd-r-md);
+}
+
+.tkd-attend-day--present {
+  background: var(--tkd-green-light);
+}
+
+.tkd-attend-day-label {
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--tkd-fg-muted);
+  text-transform: uppercase;
+}
+
+.tkd-attend-day-bar {
+  width: 4px;
+  background: var(--tkd-green);
+  border-radius: 2px;
+  transition: height 300ms ease;
+}

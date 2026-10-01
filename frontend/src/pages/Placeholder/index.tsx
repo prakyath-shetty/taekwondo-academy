@@ -1,0 +1,20 @@
+import React from 'react';
+import ScheduleReal from '../Schedule';
+const Schedule: React.FC = () => <ScheduleReal />;
+import TrainingReal from '../Training';
+const Training: React.FC = () => <TrainingReal />;
+import PerformanceReal from '../Performance';
+const Performance: React.FC = () => <PerformanceReal />;
+import TournamentsReal from '../Tournaments';
+const Tournaments: React.FC = () => <TournamentsReal />;
+import AchievementsReal from '../Achievements';
+const Achievements: React.FC = () => <AchievementsReal />;
+import CoachReal from '../Coach';
+const Coach: React.FC = () => <CoachReal />;
+import AnnouncementsReal from '../Announcements';
+const Announcements: React.FC = () => <AnnouncementsReal />;
+import GalleryReal from '../Gallery';
+const Gallery: React.FC = () => <GalleryReal />;
+
+export { Schedule, Training, Performance, Tournaments, Achievements, Coach, Announcements, Gallery };
+export default Schedule;

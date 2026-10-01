@@ -1,0 +1,483 @@
+/* ── Performance Page Shell ── */
+.tkd-perf-page {
+  background: var(--tkd-bg);
+  min-height: 100vh;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.tkd-perf-content {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 0.875rem 1.5rem 1.25rem;
+  max-width: none;
+}
+
+/* ── Header ── */
+.tkd-perf-header {
+  margin-bottom: 0.625rem;
+}
+
+.tkd-perf-header h1 {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--tkd-fg);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.125rem;
+}
+
+.tkd-perf-header p {
+  font-size: 0.8125rem;
+  color: var(--tkd-fg-muted);
+  margin: 0;
+}
+
+/* ── Tabs ── */
+.tkd-perf-tabs {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--tkd-surface);
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-xl);
+  padding: 0.375rem;
+  margin-bottom: 0.75rem;
+  width: fit-content;
+}
+
+.tkd-perf-tab {
+  padding: 0.5rem 1rem;
+  border-radius: var(--tkd-r-lg);
+  border: none;
+  background: transparent;
+  color: var(--tkd-fg-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--tkd-font);
+  transition: all var(--tkd-ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  white-space: nowrap;
+}
+
+.tkd-perf-tab:hover {
+  color: var(--tkd-fg);
+  background: var(--tkd-bg);
+}
+
+.tkd-perf-tab--active {
+  background: var(--tkd-red);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(215, 38, 61, 0.25);
+}
+
+.tkd-perf-tab--active:hover {
+  background: var(--tkd-red-dark);
+  color: #ffffff;
+}
+
+/* ── Overview: Summary Cards ── */
+.tkd-perf-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.625rem;
+  margin-bottom: 0.75rem;
+}
+
+.tkd-perf-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1875rem;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-lg);
+  background: var(--tkd-surface);
+  box-shadow: var(--tkd-shadow);
+}
+
+.tkd-perf-stat-label {
+  color: var(--tkd-fg-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tkd-perf-stat-value {
+  color: var(--tkd-fg);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.tkd-perf-stat-value--red   { color: var(--tkd-red); }
+.tkd-perf-stat-value--blue  { color: var(--tkd-blue); }
+.tkd-perf-stat-value--green { color: var(--tkd-green); }
+.tkd-perf-stat-value--orange{ color: var(--tkd-orange); }
+
+/* ── Trend Chart ── */
+.tkd-perf-chart-section {
+  background: var(--tkd-surface);
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-lg);
+  box-shadow: var(--tkd-shadow);
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.tkd-perf-chart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid var(--tkd-border);
+}
+
+.tkd-perf-chart-head h2 {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--tkd-fg);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tkd-perf-trend-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.1875rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.tkd-perf-trend-badge--up   { background: var(--tkd-green-soft); color: var(--tkd-green); }
+.tkd-perf-trend-badge--down { background: var(--tkd-red-soft);  color: var(--tkd-red); }
+.tkd-perf-trend-badge--stable { background: var(--tkd-bg);      color: var(--tkd-fg-muted); }
+
+.tkd-perf-chart-body {
+  padding: 0.75rem 1rem 0.5rem;
+  height: 180px;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+}
+
+.tkd-perf-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tkd-perf-bar-group:hover .tkd-perf-bar-label { opacity: 1; }
+.tkd-perf-bar-label { opacity: 0; transition: opacity 0.15s ease; }
+.tkd-perf-bar-xlabel { transition: fill 0.15s ease; }
+.tkd-perf-bar-group:hover .tkd-perf-bar-xlabel { fill: var(--tkd-fg); }
+
+/* ── Latest Evaluation Card ── */
+.tkd-perf-latest {
+  background: var(--tkd-surface);
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-lg);
+  box-shadow: var(--tkd-shadow);
+  padding: 0.875rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.tkd-perf-latest-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tkd-perf-latest-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tkd-perf-latest-title span {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--tkd-fg);
+}
+
+.tkd-perf-latest-score {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.tkd-perf-latest-score strong {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--tkd-fg);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.tkd-perf-latest-score small {
+  font-size: 0.75rem;
+  color: var(--tkd-fg-muted);
+  font-weight: 500;
+}
+
+.tkd-perf-latest-meta {
+  font-size: 0.75rem;
+  color: var(--tkd-fg-muted);
+}
+
+.tkd-perf-latest-feedback {
+  padding: 0.5rem 0.625rem;
+  background: var(--tkd-bg);
+  border-radius: var(--tkd-r-md);
+  border-left: 3px solid var(--tkd-red);
+  font-size: 0.8125rem;
+  color: var(--tkd-fg);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Evaluation List ── */
+.tkd-perf-section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tkd-fg-subtle);
+  margin-bottom: 0.5rem;
+}
+
+.tkd-perf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.tkd-perf-row {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto 14px;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.625rem;
+  border: 1px solid transparent;
+  border-radius: var(--tkd-r-md);
+  background: var(--tkd-surface);
+  border: 1px solid var(--tkd-border);
+  box-shadow: var(--tkd-shadow);
+  cursor: default;
+  transition: border-color var(--tkd-ease);
+}
+
+.tkd-perf-row:hover {
+  border-color: color-mix(in srgb, var(--tkd-red) 25%, var(--tkd-border));
+}
+
+.tkd-perf-row-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  border-radius: var(--tkd-r-sm);
+  background: var(--tkd-bg);
+  padding: 0.25rem;
+}
+
+.tkd-perf-row-date strong {
+  color: var(--tkd-fg);
+  font-size: 0.8125rem;
+  line-height: 1.1;
+}
+
+.tkd-perf-row-date span {
+  color: var(--tkd-fg-muted);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+}
+
+.tkd-perf-row-main {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.tkd-perf-row-main > strong {
+  overflow: hidden;
+  color: var(--tkd-fg);
+  font-size: 0.8125rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tkd-perf-row-meta {
+  overflow: hidden;
+  color: var(--tkd-fg-muted);
+  font-size: 0.6875rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tkd-perf-row-score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.125rem;
+  flex-shrink: 0;
+}
+
+.tkd-perf-row-score-num {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--tkd-fg);
+  line-height: 1;
+}
+
+.tkd-perf-row-score-num--high   { color: var(--tkd-green); }
+.tkd-perf-row-score-num--mid    { color: var(--tkd-blue); }
+.tkd-perf-row-score-num--low    { color: var(--tkd-orange); }
+
+.tkd-perf-row-arrow {
+  color: var(--tkd-fg-subtle);
+}
+
+/* ── Score badge for weekly rows ── */
+.tkd-perf-week-score {
+  display: flex;
+  align-items: baseline;
+  gap: 0.125rem;
+  flex-shrink: 0;
+}
+
+.tkd-perf-week-score-num {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--tkd-fg);
+  line-height: 1;
+}
+
+.tkd-perf-week-score-num--high { color: var(--tkd-green); }
+.tkd-perf-week-score-num--mid  { color: var(--tkd-blue); }
+.tkd-perf-week-score-num--low  { color: var(--tkd-orange); }
+
+.tkd-perf-week-score-pct {
+  font-size: 0.6875rem;
+  color: var(--tkd-fg-muted);
+  font-weight: 500;
+}
+
+/* ── Match result badge ── */
+.tkd-perf-result {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tkd-perf-result--won  { background: var(--tkd-green-soft); color: var(--tkd-green); }
+.tkd-perf-result--lost { background: var(--tkd-red-soft);   color: var(--tkd-red); }
+.tkd-perf-result--draw { background: var(--tkd-bg);         color: var(--tkd-fg-muted); }
+
+/* ── Coach Feedback in rows ── */
+.tkd-perf-feedback-line {
+  font-size: 0.6875rem;
+  color: var(--tkd-fg-muted);
+  margin-top: 0.125rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Empty state ── */
+.tkd-perf-empty {
+  padding: 1.5rem 0.5rem;
+  color: var(--tkd-fg-muted);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1050px) {
+  .tkd-perf-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .tkd-perf-content {
+    padding: 0.75rem;
+  }
+
+  .tkd-perf-stat-value {
+    font-size: 1.25rem;
+  }
+
+  .tkd-perf-tabs {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .tkd-perf-tab {
+    flex: 1;
+    justify-content: center;
+    padding: 0.5rem 0.5rem;
+    font-size: 0.8125rem;
+  }
+
+  .tkd-perf-chart-body {
+    height: 150px;
+  }
+}
+
+@media (max-width: 520px) {
+  .tkd-perf-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tkd-perf-stat-label {
+    font-size: 0.6875rem;
+  }
+
+  .tkd-perf-stat-value {
+    font-size: 1.125rem;
+  }
+
+  .tkd-perf-row {
+    grid-template-columns: 38px minmax(0, 1fr) auto;
+    gap: 0.375rem;
+    padding: 0.375rem 0.5rem;
+  }
+
+  .tkd-perf-row-arrow {
+    display: none;
+  }
+
+  .tkd-perf-row-main > strong {
+    white-space: normal;
+  }
+
+  .tkd-perf-chart-body {
+    height: 130px;
+  }
+}

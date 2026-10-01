@@ -1,0 +1,80 @@
+/* ── Metric Card — clean, consistent, premium ── */
+.tkd-metric {
+  background: var(--tkd-surface);
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-xl);
+  padding: 1.125rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.tkd-metric:hover {
+  border-color: var(--tkd-border-strong);
+  box-shadow: var(--tkd-shadow-sm);
+}
+
+.tkd-metric-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.tkd-metric-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--tkd-fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.tkd-metric-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--tkd-r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tkd-metric-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Per-metric accent colors */
+.tkd-metric--red .tkd-metric-icon   { background: var(--tkd-red-light); color: var(--tkd-red); }
+.tkd-metric--blue .tkd-metric-icon  { background: var(--tkd-blue-light); color: var(--tkd-blue); }
+.tkd-metric--green .tkd-metric-icon { background: var(--tkd-green-light); color: var(--tkd-green); }
+.tkd-metric--orange .tkd-metric-icon{ background: var(--tkd-orange-light); color: var(--tkd-orange); }
+
+.tkd-metric-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--tkd-fg);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.tkd-metric-change {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--tkd-fg-muted);
+}
+
+.tkd-metric-change--up {
+  color: var(--tkd-green);
+}
+
+.tkd-metric-sub {
+  font-size: 0.75rem;
+  color: var(--tkd-fg-muted);
+  font-weight: 500;
+}

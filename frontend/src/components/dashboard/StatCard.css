@@ -1,0 +1,93 @@
+/* ── Stat Cards — compact desktop ── */
+.tkd-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.625rem;
+  margin-bottom: 0.625rem;
+  padding: 0 1px;
+}
+
+.tkd-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.625rem 0.75rem;
+  height: 68px;
+  border-radius: var(--tkd-r-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.tkd-stat--red   { background: #fde9eb; }
+.tkd-stat--blue  { background: #e4eefc; }
+.tkd-stat--purple { background: #efe6fc; }
+.tkd-stat--orange { background: #fdf0e2; }
+
+.tkd-stat-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.tkd-stat--red .tkd-stat-icon   { background: #f9c7cd; color: var(--tkd-red); }
+.tkd-stat--blue .tkd-stat-icon  { background: #c5dcf9; color: var(--tkd-blue); }
+.tkd-stat--purple .tkd-stat-icon { background: #dcc9f8; color: var(--tkd-purple); }
+.tkd-stat--orange .tkd-stat-icon { background: #fbd9b8; color: var(--tkd-orange); }
+
+.tkd-stat-icon svg { width: 19px; height: 19px; }
+
+.tkd-stat-info { flex: 1; min-width: 0; }
+
+.tkd-stat-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #23262f;
+}
+
+.tkd-stat-value {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-top: 1px;
+  color: var(--tkd-fg);
+  line-height: 1.2;
+}
+
+.tkd-stat-value--blue {
+  color: #1d57e0;
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+.tkd-stat-foot {
+  font-size: 10px;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 500;
+}
+
+.tkd-stat-foot.green { color: #2e8b57; }
+.tkd-stat-foot.muted { color: #4b5060; }
+.tkd-stat-foot.warm  { color: var(--tkd-red); }
+
+.tkd-stat-deco {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.55;
+}
+
+@media (max-width: 1280px) {
+  .tkd-stats-row { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .tkd-stats-row { grid-template-columns: 1fr; }
+  .tkd-stat { height: auto; }
+}

@@ -1,0 +1,177 @@
+/* ── Schedule Calendar ── */
+.tkd-schedule-calendar {
+  background: var(--tkd-surface);
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-lg);
+  box-shadow: var(--tkd-shadow);
+  overflow: hidden;
+  min-width: 0;
+  width: 100%;
+}
+
+.tkd-cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  background: var(--tkd-surface);
+  color: var(--tkd-fg);
+  border-bottom: 1px solid var(--tkd-border);
+}
+
+.tkd-cal-title {
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 0;
+  margin: 0;
+}
+
+.tkd-schedule-cal-nav {
+  display: flex;
+  gap: 0.375rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.tkd-cal-nav-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--tkd-r-md);
+  border: 1px solid var(--tkd-border);
+  background: var(--tkd-surface);
+  color: var(--tkd-fg-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--tkd-ease);
+}
+
+.tkd-cal-nav-btn:hover {
+  background: var(--tkd-bg);
+  color: var(--tkd-fg);
+  border-color: var(--tkd-border);
+}
+
+.tkd-cal-today-btn {
+  padding: 0.3rem 0.625rem;
+  border-radius: var(--tkd-r-md);
+  border: 1px solid var(--tkd-border);
+  background: var(--tkd-surface);
+  color: var(--tkd-red);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--tkd-font);
+  transition: all var(--tkd-ease);
+  letter-spacing: 0.02em;
+}
+
+.tkd-cal-today-btn:hover {
+  background: var(--tkd-red-soft);
+  border-color: color-mix(in srgb, var(--tkd-red) 25%, var(--tkd-border));
+}
+
+/* Grid */
+.tkd-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--tkd-border);
+  min-width: 0;
+}
+
+.tkd-cal-dow {
+  min-width: 0;
+  padding: 0.375rem 0.125rem;
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tkd-fg-subtle);
+  background: var(--tkd-surface);
+}
+
+.tkd-cal-day {
+  min-width: 0;
+  min-height: 48px;
+  background: var(--tkd-surface);
+  padding: 0.25rem 0.375rem;
+  cursor: pointer;
+  transition: background var(--tkd-ease);
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  position: relative;
+}
+
+.tkd-cal-day:hover {
+  background: var(--tkd-bg);
+}
+
+.tkd-cal-day--out {
+  background: var(--tkd-bg);
+  cursor: default;
+  color: var(--tkd-fg-subtle);
+}
+
+.tkd-cal-day--out:hover {
+  background: var(--tkd-bg);
+}
+
+.tkd-cal-day--today {
+  background: var(--tkd-red-soft);
+}
+
+.tkd-cal-day--selected {
+  background: color-mix(in srgb, var(--tkd-red) 10%, var(--tkd-surface));
+  outline: 2px solid var(--tkd-red);
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+.tkd-cal-day-num {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--tkd-fg);
+  line-height: 1;
+}
+
+.tkd-cal-day--today .tkd-cal-day-num {
+  color: var(--tkd-red);
+  font-weight: 800;
+}
+
+.tkd-cal-day--out .tkd-cal-day-num {
+  color: var(--tkd-fg-subtle);
+}
+
+/* Event dots */
+.tkd-cal-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+  margin-top: 0.125rem;
+}
+
+.tkd-cal-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tkd-cal-dot--training       { background: var(--tkd-blue); }
+.tkd-cal-dot--special-training{ background: var(--tkd-purple); }
+.tkd-cal-dot--tournament      { background: var(--tkd-green); }
+.tkd-cal-dot--belt-grading    { background: var(--tkd-red); }
+.tkd-cal-dot--holiday         { background: var(--tkd-orange); }
+.tkd-cal-dot--academy-event   { background: var(--tkd-fg-muted); }
+
+@media (max-width: 640px) {
+  .tkd-cal-day { min-height: 46px; padding: 0.25rem 0.125rem; }
+  .tkd-cal-day-num { font-size: 0.75rem; }
+  .tkd-cal-dots { display: none; }
+}

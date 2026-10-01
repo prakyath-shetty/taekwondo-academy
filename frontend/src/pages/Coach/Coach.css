@@ -1,0 +1,288 @@
+/* ── Coach Page Shell ── */
+.tkd-coach-page {
+  background: var(--tkd-bg);
+  min-height: 100vh;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.tkd-coach-content {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 0.875rem 1.5rem 1.25rem;
+}
+
+/* ── Header ── */
+.tkd-coach-header { margin-bottom: 0.625rem; }
+.tkd-coach-header h1 {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--tkd-fg);
+  margin: 0 0 0.125rem;
+  letter-spacing: -0.02em;
+}
+.tkd-coach-header p { font-size: 0.8125rem; color: var(--tkd-fg-muted); margin: 0; }
+
+/* ── Unread Banner ── */
+.tkd-coach-unread-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background: var(--tkd-blue-soft);
+  border: 1px solid color-mix(in srgb, var(--tkd-blue) 25%, transparent);
+  border-radius: var(--tkd-r-lg);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--tkd-blue);
+  margin-bottom: 0.75rem;
+}
+
+/* ── Layout ── */
+.tkd-coach-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Messages List ── */
+.tkd-coach-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 0;
+}
+.tkd-coach-type-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-bottom: 0.25rem;
+}
+.tkd-coach-type-filter {
+  padding: 0.3125rem 0.625rem;
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-md);
+  background: var(--tkd-surface);
+  color: var(--tkd-fg-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--tkd-font);
+  transition: all var(--tkd-ease);
+  border-bottom-width: 2px;
+}
+.tkd-coach-type-filter:hover { color: var(--tkd-fg); border-color: var(--tkd-fg-subtle); }
+.tkd-coach-type-filter--active {
+  color: var(--tkd-fg);
+  background: var(--tkd-bg);
+  border-color: var(--tkd-fg-subtle);
+}
+.tkd-coach-msg-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  max-height: 420px;
+  overflow-y: auto;
+}
+.tkd-coach-msg {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: var(--tkd-r-md);
+  background: var(--tkd-surface);
+  border: 1px solid var(--tkd-border);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: border-color var(--tkd-ease);
+}
+.tkd-coach-msg:hover { border-color: color-mix(in srgb, var(--tkd-red) 25%, var(--tkd-border)); }
+.tkd-coach-msg--selected { border-color: var(--tkd-red); background: color-mix(in srgb, var(--tkd-red) 4%, var(--tkd-surface)); }
+.tkd-coach-msg--unread { border-left: 3px solid var(--tkd-blue); }
+.tkd-coach-msg-avatar {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tkd-bg);
+  border-radius: var(--tkd-r-md);
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+.tkd-coach-msg-body { flex: 1; min-width: 0; }
+.tkd-coach-msg-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.125rem;
+}
+.tkd-coach-msg-from { font-size: 0.8125rem; font-weight: 700; color: var(--tkd-fg); }
+.tkd-coach-msg-date { font-size: 0.6875rem; color: var(--tkd-fg-subtle); flex-shrink: 0; }
+.tkd-coach-msg-subject {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--tkd-fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.125rem;
+}
+.tkd-coach-msg-preview {
+  font-size: 0.75rem;
+  color: var(--tkd-fg-muted);
+  line-height: 1.4;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tkd-coach-msg-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tkd-blue);
+  flex-shrink: 0;
+  margin-top: 0.375rem;
+}
+
+/* ── Detail Panel ── */
+.tkd-coach-detail {
+  background: var(--tkd-surface);
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-lg);
+  box-shadow: var(--tkd-shadow);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+.tkd-coach-detail-inner { display: flex; flex-direction: column; gap: 0.75rem; height: 100%; }
+.tkd-coach-detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  background: none;
+  color: var(--tkd-fg-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--tkd-font);
+  transition: color var(--tkd-ease);
+  align-self: flex-start;
+}
+.tkd-coach-detail-back:hover { color: var(--tkd-fg); }
+.tkd-coach-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--tkd-border);
+}
+.tkd-coach-detail-type { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+.tkd-coach-detail-from { font-size: 0.8125rem; color: var(--tkd-fg-muted); }
+.tkd-coach-detail-date { font-size: 0.75rem; color: var(--tkd-fg-subtle); margin-left: auto; }
+.tkd-coach-detail-subject {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--tkd-fg);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+.tkd-coach-detail-body {
+  font-size: 0.875rem;
+  color: var(--tkd-fg);
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+.tkd-coach-empty-detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--tkd-fg-muted);
+  font-size: 0.9375rem;
+}
+
+/* ── Office Hours ── */
+.tkd-coach-schedule { margin-top: 0.5rem; }
+.tkd-coach-section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--tkd-fg);
+  margin: 0 0 0.625rem;
+  letter-spacing: -0.01em;
+}
+.tkd-coach-schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.5rem;
+}
+.tkd-coach-schedule-card {
+  padding: 0.875rem;
+  border: 1px solid var(--tkd-border);
+  border-radius: var(--tkd-r-lg);
+  background: var(--tkd-surface);
+  box-shadow: var(--tkd-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+.tkd-coach-schedule-coach {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--tkd-fg);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.tkd-coach-schedule-coach svg { color: var(--tkd-fg-subtle); }
+.tkd-coach-schedule-time {
+  display: flex;
+  flex-direction: column;
+  gap: 0.0625rem;
+}
+.tkd-coach-schedule-day { font-size: 0.8125rem; font-weight: 600; color: var(--tkd-fg); }
+.tkd-coach-schedule-hours { font-size: 0.75rem; color: var(--tkd-fg-muted); }
+.tkd-coach-schedule-type {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  background: var(--tkd-bg);
+  color: var(--tkd-fg-muted);
+  text-transform: capitalize;
+}
+.tkd-coach-schedule-notes {
+  font-size: 0.75rem;
+  color: var(--tkd-fg-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .tkd-coach-layout { grid-template-columns: 1fr; }
+  .tkd-coach-msg-list { max-height: 280px; }
+}
+@media (max-width: 640px) {
+  .tkd-coach-content { padding: 0.75rem; }
+  .tkd-coach-schedule-grid { grid-template-columns: 1fr; }
+}

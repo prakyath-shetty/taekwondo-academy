@@ -1,0 +1,51 @@
+/* ── Events — matches reference ── */
+.tkd-ev-list { display: flex; flex-direction: column; }
+
+.tkd-ev {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 0;
+  border-top: 1px solid var(--tkd-border);
+}
+
+.tkd-ev:first-child { border-top: none; padding-top: 2px; }
+
+.tkd-ev-date {
+  width: 44px;
+  text-align: center;
+  flex-shrink: 0;
+  border-right: 1px solid var(--tkd-border);
+  padding-right: 10px;
+  margin-right: -2px;
+}
+
+.tkd-ev-date small {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #3b3f4a;
+}
+
+.tkd-ev-date b {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--tkd-fg);
+}
+
+.tkd-ev-info { flex: 1; min-width: 0; }
+.tkd-ev-info b { display: block; font-size: 13.5px; font-weight: 600; color: var(--tkd-fg); }
+.tkd-ev-info span { font-size: 12px; color: #6b7280; }
+
+.tkd-pill {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+.tkd-pill--training  { background: #e6f0ff; color: #2563eb; }
+.tkd-pill--tournament { background: #dcf5e5; color: #15803d; }
