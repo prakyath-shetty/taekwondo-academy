@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Eye, EyeOff } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import Input from '../../components/ui/Input';
 import Button from '../../components/ui/Button';
@@ -8,13 +9,15 @@ import { useAuth } from '../../hooks/useAuth';
 import { login } from '../../services/authService';
 import '../auth.css';
 
+const REMEMBERED_EMAIL_KEY = 'tkd_remembered_email';
+
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const { setUser } = useAuth();
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(() => localStorage.getItem(REMEMBERED_EMAIL_KEY) ?? '');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
+  const [rememberEmail, setRememberEmail] = useState(() => localStorage.getItem(REMEMBERED_EMAIL_KEY) !== null);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [serverError, setServerError] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -39,6 +42,8 @@ const Login: React.FC = () => {
       const res = await login({ email, password });
       const data = res.data?.data;
       if (res.data?.success && data) {
+        if (rememberEmail) localStorage.setItem(REMEMBERED_EMAIL_KEY, email.trim());
+        else localStorage.removeItem(REMEMBERED_EMAIL_KEY);
         setUser(data.user, data.token);
         navigate('/app');
       } else {
@@ -66,9 +71,12 @@ const Login: React.FC = () => {
         <div className="tkd-auth-form-section">
           <div className="tkd-auth-form-card">
             <div className="tkd-auth-form-header">
-              <span className="tkd-auth-welcome-label">Welcome back</span>
-              <h1 className="tkd-auth-form-title">Sign In</h1>
-              <p className="tkd-auth-form-subtitle">Continue your training journey.</p>
+              <div className="tkd-auth-heading-group">
+                <span className="tkd-auth-welcome-label">Welcome back</span>
+                <h1 className="tkd-auth-form-title">Sign In</h1>
+                <div className="tkd-auth-title-accent" aria-hidden="true" />
+                <p className="tkd-auth-form-subtitle">Continue your training journey.</p>
+              </div>
             </div>
 
             {serverError && (
@@ -109,20 +117,16 @@ const Login: React.FC = () => {
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="tkd-auth-eye-btn"
-                  tabIndex={-1}
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  aria-pressed={showPassword}
                 >
-                  {showPassword ? (
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-                  ) : (
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                  )}
+                  {showPassword ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
                 </button>
               </div>
 
               <div className="tkd-auth-row">
                 <label className="tkd-auth-check">
-                  <input type="checkbox" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />
+                  <input type="checkbox" checked={rememberEmail} onChange={(e) => setRememberEmail(e.target.checked)} />
                   <span className="tkd-auth-check-label">Remember me</span>
                 </label>
                 <Link to="/forgot-password" className="tkd-auth-forgot">Forgot password?</Link>

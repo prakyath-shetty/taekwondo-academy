@@ -56,13 +56,16 @@ const ForgotPassword: React.FC = () => {
         <div className="tkd-auth-form-section">
           <div className="tkd-auth-form-card">
             <div className="tkd-auth-form-header">
-              <span className="tkd-auth-welcome-label">Password recovery</span>
-              <h1 className="tkd-auth-form-title">{submitted ? 'Check Your Email' : 'Forgot Password?'}</h1>
-              <p className="tkd-auth-form-subtitle">
-                {submitted
-                  ? 'We\'ve sent a reset link to your email address.'
-                  : 'No worries, we\'ll send you reset instructions.'}
-              </p>
+              <div className="tkd-auth-heading-group">
+                <span className="tkd-auth-welcome-label">Password recovery</span>
+                <h1 className="tkd-auth-form-title">{submitted ? 'Check Your Email' : 'Forgot Password?'}</h1>
+                <div className="tkd-auth-title-accent" aria-hidden="true" />
+                <p className="tkd-auth-form-subtitle">
+                  {submitted
+                    ? 'We\'ve sent a reset link to your email address.'
+                    : 'No worries, we\'ll send you reset instructions.'}
+                </p>
+              </div>
             </div>
 
             {serverError && !submitted && (

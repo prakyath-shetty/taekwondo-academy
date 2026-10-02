@@ -1,14 +1,11 @@
 /* =========================================
    Taekwondo Academy — Auth Page Styles
-   Design system aligned with Dashboard
+   Premium cinematic two-panel design
    ========================================= */
 
+/* ── Page shell ── */
 .tkd-auth-page {
   min-height: 100vh;
-  background: var(--tkd-bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: var(--tkd-font);
 }
 
@@ -16,179 +13,236 @@
   display: flex;
   width: 100%;
   min-height: 100vh;
-  background: var(--tkd-white);
 }
 
-/* ── Left: Hero / Brand Panel ── */
-.tkd-auth-hero {
-  flex: 0 0 42%;
+/* ── LEFT PANEL: Cinematic image panel ── */
+.tkd-auth-image-panel {
+  flex: 0 0 46.875%;
   position: relative;
-  background: var(--tkd-navy);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 3rem 2.5rem;
-  color: #ffffff;
-  overflow: hidden;
+  background: #0a0d14;
 }
 
-/* Mountain scene background */
-.tkd-auth-hero::before {
-  content: '';
+.tkd-auth-image-panel-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #0a0d14 0%, #0f1622 50%, #1c2537 100%);
-  opacity: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 68%;
+  display: block;
 }
 
-/* Subtle dot pattern overlay */
-.tkd-auth-hero::after {
-  content: '';
+/* Dark photographic overlay — cinematic depth */
+.tkd-auth-image-panel-overlay {
   position: absolute;
   inset: 0;
-  opacity: 0.04;
-  background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
-  background-size: 32px 32px;
+  background: linear-gradient(
+    160deg,
+    rgba(8, 10, 18, 0.48) 0%,
+    rgba(8, 10, 18, 0.28) 45%,
+    rgba(8, 10, 18, 0.5) 100%
+  );
   pointer-events: none;
 }
 
-.tkd-auth-brand {
+.tkd-auth-brand-overlay {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100%;
+  padding: 2.75rem 2.5rem 2.5rem;
+  color: #ffffff;
 }
 
-/* Logo area */
-.tkd-auth-logo {
+/* Top: Academy branding */
+.tkd-auth-brand-top {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.625rem;
   margin-bottom: 2.5rem;
 }
 
 .tkd-auth-logo-icon {
-  width: 48px;
-  height: 60px;
+  width: 34px;
+  height: 43px;
   color: #ffffff;
   flex-shrink: 0;
 }
 
-.tkd-auth-logo-icon svg {
-  width: 100%;
-  height: 100%;
-}
-
-.tkd-auth-logo-text {
-  font-size: 1rem;
+.tkd-auth-brand-name {
+  font-size: 0.875rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  color: #ffffff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
 }
 
-/* Headline */
-.tkd-auth-headline {
-  font-size: 1.75rem;
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-  margin-bottom: 0.75rem;
+/* Center: Headline block */
+.tkd-auth-brand-center {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
 }
 
-/* Script accent */
 .tkd-auth-script {
   font-family: var(--tkd-font-script);
   font-size: 1.125rem;
   color: var(--tkd-red);
-  margin-bottom: 0.5rem;
   letter-spacing: 0.02em;
+  margin-bottom: 0.25rem;
 }
 
-/* Subline */
+.tkd-auth-headline {
+  font-size: 2.125rem;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+}
+
 .tkd-auth-subline {
   font-size: 0.9375rem;
-  color: #9ca3af;
+  color: rgba(255, 255, 255, 0.68);
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-top: 0.875rem;
+  max-width: 340px;
 }
 
-/* Fighter silhouette decoration */
-.tkd-auth-fighter {
-  position: absolute;
-  right: -20px;
-  bottom: 60px;
-  width: 200px;
-  height: 200px;
-  opacity: 0.12;
-  z-index: 0;
-}
-
-.tkd-auth-fighter svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* Tagline */
+/* Bottom: Tagline */
 .tkd-auth-tagline {
-  margin-top: auto;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .tkd-auth-tagline p {
   font-family: var(--tkd-font-serif);
   font-style: italic;
   font-size: 0.9375rem;
-  color: #c9ccd6;
-  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.65;
   margin: 0;
 }
 
-/* ── Right: Form Panel ── */
+/* ── RIGHT PANEL: Warm ivory form ── */
 .tkd-auth-form-section {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1.5rem;
-  background: var(--tkd-bg);
+  padding: 2.5rem 1.5rem;
+  background: #f7f4ef;  /* warm ivory */
   overflow-y: auto;
 }
 
 .tkd-auth-form-card {
   width: 100%;
-  max-width: 420px;
+  max-width: 400px;
 }
 
 /* Header */
 .tkd-auth-form-header {
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
+  position: relative;
+}
+
+/* Wrapper for staggered entrance animation */
+.tkd-auth-heading-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.tkd-auth-heading-group > * {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: tkd-heading-stagger 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.tkd-auth-heading-group > *:nth-child(1) { animation-delay: 80ms; }
+.tkd-auth-heading-group > *:nth-child(2) { animation-delay: 180ms; }
+.tkd-auth-heading-group > *:nth-child(3) { animation-delay: 280ms; }
+.tkd-auth-heading-group > *:nth-child(4) { animation-delay: 360ms; }
+
+@keyframes tkd-heading-stagger {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .tkd-auth-welcome-label {
-  display: inline-block;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--tkd-red);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.625rem;
+}
+
+.tkd-auth-welcome-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--tkd-red);
+  border-radius: 1px;
+  flex-shrink: 0;
 }
 
 .tkd-auth-form-title {
-  font-size: 1.625rem;
+  font-size: 3rem;
   font-weight: 800;
   color: var(--tkd-fg);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  margin: 0 0 0.375rem;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin: 0 0 0.5rem;
+  position: relative;
+  display: inline;
+}
+
+.tkd-auth-title-accent {
+  display: block;
+  height: 3px;
+  width: 64px;
+  background: var(--tkd-red);
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+  opacity: 0.85;
+  position: relative;
+  overflow: hidden;
+}
+
+.tkd-auth-title-accent::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 600ms ease;
+}
+
+.tkd-auth-title-accent:hover::after {
+  transform: translateX(100%);
 }
 
 .tkd-auth-form-subtitle {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   color: var(--tkd-fg-muted);
+  line-height: 1.55;
   margin: 0;
 }
 
@@ -219,8 +273,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
-  margin-top: 0.25rem;
+  margin-bottom: 1.75rem;
+  margin-top: 0.5rem;
 }
 
 .tkd-auth-check {
@@ -228,6 +282,12 @@
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
+  padding: 0.25rem 0;
+  transition: opacity 180ms ease;
+}
+
+.tkd-auth-check:hover {
+  opacity: 0.85;
 }
 
 .tkd-auth-check input[type="checkbox"] {
@@ -235,6 +295,21 @@
   width: 1rem;
   height: 1rem;
   cursor: pointer;
+  transition: transform 150ms ease;
+}
+
+.tkd-auth-check input[type="checkbox"]:hover {
+  transform: scale(1.05);
+}
+
+.tkd-auth-check input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--tkd-red);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.tkd-auth-check:focus-within .tkd-auth-check-label {
+  color: var(--tkd-fg);
 }
 
 .tkd-auth-check-label {
@@ -243,44 +318,89 @@
 }
 
 .tkd-auth-forgot {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   color: var(--tkd-red);
   font-weight: 600;
   text-decoration: none;
-  transition: opacity var(--tkd-ease);
+  cursor: pointer;
+  transition: color 180ms ease, text-decoration 180ms ease;
+  position: relative;
 }
 
 .tkd-auth-forgot:hover {
-  opacity: 0.85;
+  color: var(--tkd-red-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tkd-auth-forgot:focus-visible,
+.tkd-auth-switch-link:focus-visible,
+.tkd-auth-google-btn:focus-visible,
+.tkd-auth-eye-btn:focus-visible {
+  outline: 2px solid var(--tkd-red);
+  outline-offset: 3px;
 }
 
 /* Divider */
 .tkd-auth-divider {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin: 1.5rem 0;
+  gap: 0.875rem;
+  margin: 1.75rem 0;
 }
 
 .tkd-auth-divider-line {
   flex: 1;
   height: 1px;
-  background-color: var(--tkd-border);
+  background-color: #d4cec2;  /* slightly stronger warm ivory border */
 }
 
 .tkd-auth-divider-text {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   color: var(--tkd-fg-subtle);
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   white-space: nowrap;
+}
+
+/* Google button — white outlined, warm ivory background */
+.tkd-auth-google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  width: 100%;
+  padding: 0.6875rem 1.5rem;
+  border: 1.5px solid #c8c0b4;
+  border-radius: var(--tkd-r-lg);
+  background: #ffffff;
+  color: var(--tkd-fg);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: var(--tkd-font);
+  cursor: pointer;
+  transition: border-color 200ms ease, background 200ms ease, box-shadow 200ms ease, transform 180ms ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.tkd-auth-google-btn:hover {
+  border-color: #a89e90;
+  background: #faf8f5;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.tkd-auth-google-btn:active {
+  background: #f5f2ed;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transform: translateY(0);
 }
 
 /* Switch link (login → signup) */
 .tkd-auth-switch {
   text-align: center;
-  margin-top: 1.75rem;
+  margin-top: 2rem;
   font-size: 0.9375rem;
   color: var(--tkd-fg-muted);
 }
@@ -289,14 +409,17 @@
   color: var(--tkd-red);
   font-weight: 700;
   text-decoration: none;
-  transition: opacity var(--tkd-ease);
+  cursor: pointer;
+  transition: color 180ms ease, text-decoration 180ms ease;
 }
 
 .tkd-auth-switch-link:hover {
-  opacity: 0.85;
+  color: var(--tkd-red-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/* Eye button */
+/* Eye button (password show/hide) */
 .tkd-auth-eye-btn {
   position: absolute;
   right: 0.75rem;
@@ -304,15 +427,21 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 6px;
   display: flex;
   align-items: center;
   color: var(--tkd-fg-subtle);
-  transition: color var(--tkd-ease);
+  border-radius: 4px;
+  transition: color 180ms ease, background 180ms ease;
 }
 
 .tkd-auth-eye-btn:hover {
   color: var(--tkd-fg);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.tkd-auth-eye-btn:active {
+  background: rgba(0, 0, 0, 0.08);
 }
 
 /* Password strength bar */
@@ -333,36 +462,69 @@
   transition: width 200ms ease, background-color 200ms ease;
 }
 
-/* ── Responsive: Tablet & above ── */
-@media (min-width: 768px) {
-  .tkd-auth-layout {
-    flex-direction: row;
+/* ── Responsive: Tablet ── */
+@media (max-width: 1023px) {
+  .tkd-auth-image-panel {
+    flex: 0 0 38%;
   }
 
-  .tkd-auth-hero {
-    display: flex !important;
-  }
-}
-
-/* ── Responsive: Large screens ── */
-@media (min-width: 1024px) {
-  .tkd-auth-hero {
-    padding: 4rem 3rem;
+  .tkd-auth-brand-overlay {
+    padding: 2rem 1.75rem;
   }
 
   .tkd-auth-headline {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 }
 
-/* ── Responsive: Mobile first ── */
+/* ── Responsive: Mobile ── */
 @media (max-width: 767px) {
-  .tkd-auth-page {
-    align-items: flex-start;
+  .tkd-auth-layout {
+    flex-direction: column;
+  }
+
+  .tkd-auth-image-panel {
+    flex: none;
+    width: 100%;
+    height: 240px;
+  }
+
+  .tkd-auth-brand-overlay {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .tkd-auth-brand-top {
+    margin-bottom: 1.25rem;
+  }
+
+  .tkd-auth-logo-icon {
+    width: 26px;
+    height: 33px;
+  }
+
+  .tkd-auth-brand-name {
+    font-size: 0.8125rem;
+  }
+
+  .tkd-auth-script {
+    font-size: 1rem;
+  }
+
+  .tkd-auth-headline {
+    font-size: 1.5rem;
+  }
+
+  .tkd-auth-subline {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+
+  .tkd-auth-tagline {
+    display: none;
   }
 
   .tkd-auth-form-section {
-    padding: 1.5rem 1rem;
+    padding: 1.75rem 1.25rem 2rem;
     align-items: flex-start;
     padding-top: 2rem;
   }
@@ -372,11 +534,25 @@
   }
 
   .tkd-auth-form-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
+  }
+}
+
+/* ── Large screens ── */
+@media (min-width: 1280px) {
+  .tkd-auth-image-panel {
+    flex: 0 0 46.875%;
   }
 
-  /* Hide the hero panel entirely on mobile */
-  .tkd-auth-hero {
-    display: none !important;
+  .tkd-auth-brand-overlay {
+    padding: 3.25rem 3rem;
+  }
+
+  .tkd-auth-headline {
+    font-size: 2.375rem;
+  }
+
+  .tkd-auth-subline {
+    font-size: 1rem;
   }
 }

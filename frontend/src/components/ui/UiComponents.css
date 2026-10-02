@@ -1,6 +1,6 @@
 /* ── Reusable form input with design tokens ── */
 .tkd-input-wrap {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.875rem;
 }
 
 .tkd-input-wrap.has-helper {
@@ -9,28 +9,39 @@
 
 .tkd-input-label {
   display: block;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: var(--tkd-fg);
-  margin-bottom: 0.375rem;
+  margin-bottom: 0.5rem;
 }
 
 .tkd-input-field {
   width: 100%;
-  padding: 0.625rem 0.875rem;
-  border: 1px solid var(--tkd-border);
+  padding: 0.6875rem 0.9375rem;
+  border: 1.5px solid var(--tkd-border);
   border-radius: var(--tkd-r-lg);
-  font-size: 0.9375rem;
+  font-size: 1rem;
+  line-height: 1.5;
   font-family: var(--tkd-font);
   color: var(--tkd-fg);
   background: var(--tkd-white);
-  transition: border-color var(--tkd-ease), box-shadow var(--tkd-ease);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
   outline: none;
+}
+
+.tkd-input-field:hover:not(:focus) {
+  border-color: #b8b3aa;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .tkd-input-field:focus {
   border-color: var(--tkd-red);
   box-shadow: 0 0 0 3px var(--tkd-red-soft);
+}
+
+.tkd-input-field:focus-visible {
+  outline: 2px solid var(--tkd-red);
+  outline-offset: 1px;
 }
 
 .tkd-input-field.tkd-input--error {
@@ -62,31 +73,40 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.6875rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--tkd-r-lg);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 600;
   font-family: var(--tkd-font);
   cursor: pointer;
   border: none;
   background: var(--tkd-red);
   color: #ffffff;
-  transition: background var(--tkd-ease), opacity var(--tkd-ease), transform 100ms ease;
+  transition: background 200ms ease, box-shadow 200ms ease, transform 180ms ease;
   box-shadow: 0 2px 8px rgba(215, 38, 61, 0.25);
 }
 
 .tkd-btn:hover:not(:disabled) {
   background: var(--tkd-red-dark);
+  box-shadow: 0 4px 14px rgba(215, 38, 61, 0.35);
+  transform: translateY(-1px);
 }
 
 .tkd-btn:active:not(:disabled) {
-  transform: translateY(1px);
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(215, 38, 61, 0.3);
+}
+
+.tkd-btn:focus-visible {
+  outline: 2px solid var(--tkd-red);
+  outline-offset: 2px;
 }
 
 .tkd-btn:disabled,
 .tkd-btn.tkd-btn--loading {
   opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
 }
 
 .tkd-btn--full {
