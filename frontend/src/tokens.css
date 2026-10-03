@@ -9,6 +9,9 @@
   --tkd-navy-light:   #1b1e27;
   --tkd-navy-muted:   #2a2e38;
 
+  /* ── Warm dark (sidebar) ── */
+  --tkd-sidebar-dark: #0f172a;
+
   /* ── Neutrals ── */
   --tkd-white:        #ffffff;
   --tkd-fg:           #1c1f27;
@@ -16,7 +19,7 @@
   --tkd-fg-subtle:    #9ca3af;
   --tkd-bg:           #f5f6f8;
   --tkd-surface:      #ffffff;
-  --tkd-border:       #eceef2;
+  --tkd-border:       #ebe8e4;
 
   /* ── Accent colors ── */
   --tkd-blue:         #2563eb;

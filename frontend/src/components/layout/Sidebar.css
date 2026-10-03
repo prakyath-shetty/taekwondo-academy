@@ -13,7 +13,7 @@
   left: 0;
   height: 100vh;
   width: 212px;
-  background: var(--tkd-navy);
+  background: var(--tkd-sidebar-dark);
   display: flex;
   flex-direction: column;
   z-index: 100;
@@ -54,8 +54,9 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 16px 12px;
+  padding: 18px 16px 16px;
   flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .tkd-sidebar-logo {
@@ -132,43 +133,47 @@
 /* ── Divider ── */
 .tkd-sidebar-divider {
   height: 1px;
-  background: rgba(255, 255, 255, 0.07);
-  margin: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0.5rem 0.75rem;
 }
 
-/* ── Footer ── */
+/* ── Footer — image + quote ── */
 .tkd-sidebar-footer {
   margin-top: auto;
   position: relative;
-  height: 140px;
-  padding: 0 16px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex-shrink: 0;
-}
-
-.tkd-sidebar-silhouette {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 170px;
   height: 130px;
-  opacity: 0.4;
+  flex-shrink: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
 }
 
-.tkd-sidebar-silhouette svg {
+.tkd-sidebar-footer-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  opacity: 0.35;
+  filter: grayscale(40%);
+}
+
+.tkd-sidebar-footer-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--tkd-sidebar-dark) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .tkd-sidebar-quote {
   position: relative;
+  z-index: 1;
+  padding: 0 14px 14px;
   font-family: var(--tkd-font-serif);
   font-style: italic;
-  font-size: 13.5px;
-  line-height: 1.4;
-  color: #c9ccd6;
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.6);
   text-align: center;
   margin: 0;
 }

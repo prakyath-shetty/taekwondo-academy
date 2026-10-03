@@ -18,7 +18,8 @@ import {
 } from 'lucide-react';
 import { useNavigation } from '../../contexts/NavContext';
 import type { PageId } from '../../contexts/NavContext';
-import { Logo, Fighter } from '../dashboard/Art';
+import { Logo } from '../dashboard/Art';
+import sidebarImage from '../../../../side bar.png';
 import './Sidebar.css';
 
 type NavigationItem = { id: PageId; label: string; icon: React.ComponentType<LucideProps> };
@@ -116,9 +117,10 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
           })}
         </nav>
 
-        {/* Footer silhouette figure + quote */}
+        {/* Footer image + quote */}
         <div className="tkd-sidebar-footer">
-          <Fighter className="tkd-sidebar-silhouette" color="rgba(255,255,255,0.35)" />
+          <img src={sidebarImage} alt="" className="tkd-sidebar-footer-img" />
+          <div className="tkd-sidebar-footer-overlay" />
           <p className="tkd-sidebar-quote">"A Black Belt is a White Belt who Never Gave Up."</p>
         </div>
       </aside>

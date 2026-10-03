@@ -68,6 +68,18 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
     navigate('/login');
   };
 
+  const dailyQuotes = [
+    "Discipline today. Strength tomorrow.",
+    "Every session brings you closer.",
+    "The belt is earned, not given.",
+    "Train with purpose. Compete with heart.",
+    "Respect is the highest rank.",
+  ];
+
+  const [motivation] = React.useState(() =>
+    dailyQuotes[Math.floor(Math.random() * dailyQuotes.length)]
+  );
+
   return (
     <header className="tkd-header">
       <div className="tkd-header-left">
@@ -78,6 +90,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
             <line x1="3" y1="18" x2="21" y2="18" />
           </svg>
         </button>
+        <span className="tkd-header-motivation">{motivation}</span>
       </div>
 
       <div className="tkd-header-right">
