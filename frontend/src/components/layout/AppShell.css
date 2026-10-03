@@ -17,6 +17,7 @@
 .tkd-app-content {
   flex: 1;
   overflow-y: auto;
+  min-height: 0;
 }
 
 @media (max-width: 768px) {
